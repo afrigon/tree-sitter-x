@@ -1,0 +1,35 @@
+{
+  "grammars": [
+    {
+      "name": "x",
+      "camelcase": "X",
+      "scope": "source.x",
+      "file-types": [
+        ".x"
+      ],
+      "injection-regex": "^x$"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "A tree-sitter grammar for the x programming language.",
+    "authors": [
+      {
+        "name": "Alexandre Frigon",
+        "email": "alexandre@frigon.app"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/afrigon/tree-sitter-x"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}

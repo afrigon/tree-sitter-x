@@ -1,4 +1,4 @@
-; [ "." ":" "," ] @punctuation.delimiter
+[ ":" "," "->" ] @punctuation.delimiter
 [ "(" ")" "{" "}" ] @punctuation.bracket
 
 [
@@ -39,7 +39,8 @@
 
 "fun" @keyword.function
 
-(function_declaration (identifier) @method)
+(function_declaration (identifier) @function)
+(function_parameter label: (identifier)) @label
 
 (string_literal) @string
 (boolean_literal) @boolean
@@ -52,8 +53,13 @@
   (real_literal)
 ] @number
 
+"nil" @null
+
 ["continue" "break"] @repeat
 
 ["let" "mut"] @keyword
 
-(comment) @comment
+(type) @type
+
+
+(comment) @comment @spell

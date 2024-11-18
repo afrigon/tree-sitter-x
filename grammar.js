@@ -58,13 +58,13 @@ module.exports = grammar({
         $.function_body,
       ),
     extern_declaration: ($) =>
-      seq("extern", $.identifier, $.function_signature),
+      seq("extern", "fun", $.identifier, $.function_signature),
     function_signature: ($) =>
       seq($.function_parameters, optional($.return_clause)),
     function_parameters: ($) =>
       seq("(", optional(sep1($.function_parameter, ",")), ")"),
     function_parameter: ($) =>
-      seq(optional($.identifier), $.identifier, ":", $.type),
+      seq(field("label", optional($.identifier)), $.identifier, ":", $.type),
     return_clause: ($) => seq("->", $.type),
     function_body: ($) => $.code_block_container,
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,

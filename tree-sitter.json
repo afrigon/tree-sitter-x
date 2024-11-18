@@ -4,10 +4,9 @@
       "name": "x",
       "camelcase": "X",
       "scope": "source.x",
-      "file-types": [
-        ".x"
-      ],
-      "injection-regex": "^x$"
+      "path": ".",
+      "file-types": ["x"],
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {

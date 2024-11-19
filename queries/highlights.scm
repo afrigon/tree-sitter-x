@@ -1,17 +1,15 @@
-[ ":" "," "->" ] @punctuation.delimiter
+[ ":" "," ] @punctuation.delimiter
 [ "(" ")" "{" "}" ] @punctuation.bracket
+[ "->" ] @punctuation.special
 
-[
-  "extern"
+; [
   ; "if"
   ; "else"
   ; "match"
-  ; "loop"
-  "return"
   ; "type"
   ; "enum"
   ; "proto"
-] @keyword
+; ] @keyword
 
 ; [
 ;   "+"
@@ -37,29 +35,32 @@
 ;   ":="
 ; ] @operator
 
+"return" @keyword.return
 "fun" @keyword.function
+"extern" @keyword
 
+(extern_declaration (identifier) @function)
 (function_declaration (identifier) @function)
 (function_parameter label: (identifier)) @label
 
 (string_literal) @string
-(boolean_literal) @boolean
+(boolean_literal) @constant.builtin
 
 [
   (decimal_literal)
   (binary_literal)
   (octal_literal)
   (hexadecimal_literal)
-  (real_literal)
 ] @number
 
-"nil" @null
+(real_literal) @float
+
+"nil" @constant.builtin
 
 ["continue" "break"] @repeat
 
 ["let" "mut"] @keyword
 
 (type) @type
-
 
 (comment) @comment @spell

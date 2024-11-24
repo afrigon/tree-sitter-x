@@ -3,15 +3,6 @@
 [ "->" ] @punctuation.special
 
 ; [
-  ; "if"
-  ; "else"
-  ; "match"
-  ; "type"
-  ; "enum"
-  ; "proto"
-; ] @keyword
-
-; [
 ;   "+"
 ;   "-"
 ;   "*"
@@ -62,6 +53,8 @@
 
 (extern_declaration (identifier) @type)
 (proto_declaration (identifier) @type)
-(enum_declaration (identifier) @enum)
+(enum_declaration (identifier) @enum @type)
+(preprocessor_declaration) @preproc
 
 (comment) @comment @spell
+(doc_comment) @comment.doc @spell

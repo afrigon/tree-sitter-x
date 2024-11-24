@@ -37,14 +37,15 @@
 
 "return" @keyword.return
 "fun" @keyword.function
-"extern" @keyword
+["let" "mut" "selfless" "type" "enum" "proto" "extern"] @keyword
+["continue" "break"] @repeat
 
-(extern_declaration (identifier) @function)
 (function_declaration (identifier) @function)
 (function_parameter label: (identifier)) @label
 
 (string_literal) @string
 (boolean_literal) @constant.builtin
+"nil" @constant.builtin
 
 [
   (decimal_literal)
@@ -55,12 +56,12 @@
 
 (real_literal) @float
 
-"nil" @constant.builtin
-
-["continue" "break"] @repeat
-
-["let" "mut"] @keyword
-
 (type) @type
+(type_declaration (identifier) @type)
+(member_block_item (variable_declaration (identifier) @property))
+
+(extern_declaration (identifier) @type)
+(proto_declaration (identifier) @type)
+(enum_declaration (identifier) @enum)
 
 (comment) @comment @spell

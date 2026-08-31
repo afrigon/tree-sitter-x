@@ -40,3 +40,9 @@ dist/
 *.zip
 
 example.x
+
+.DS_Store
+.claude
+.env
+.env.*
+!.env.example
